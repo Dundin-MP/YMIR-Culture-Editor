@@ -1,0 +1,101 @@
+Planned Improvements:			    [Implementable or useful now]
+ - Brainstorming possible settings to allow now there is a config file.
+ - Finding out what the 2 unknown values in the culture file are (one which is likely xp rate, two which are... magic).
+ - Provide an informative message when a value is capped to a certain number. (For example, entering production points of 6 is allowed, but reduced to 5)
+ - Determine which Culture ID List elements are not available to consume in-game (ex. not hammers) and revise the file accordingly. (input gladly accepted)
+ - Allow people to add and modify Culture IDs to the culture file in-program.
+ - Learn to use GitHub and get it set up there
+ - Add setting to bypass in-game limits on which products may be consumed
+UI Infrastructure Improvements:
+ - clean up UI (clear console before printed command)
+ - Edit/Add/Remove culture point entries by name, ID, or location. (Infrastructure complete, menu not.)
+ - Set up functions to increment/decrement production points.
+
+Longer term objectives:
+ - Set up framework for Batch editing
+	- file for edit / files to edit
+	- file for sets of edits
+	- [Improvement] Allow program args for console batch editing
+	- [Improvement] Reversible Batch Edit
+ - Map the Tech file.
+ - Make a GUI. (outside help?)
+
+Potential Objectives:
+ - Create means of mapping user name to culture file(manual entry?)
+ - Create option with game path as an input to provide a list of culture files to load/save from.
+
+ Known Bugs and Issues
+ - Both 'Remove Points Entry' and 'Edit Entry By Location' are a little too aggressive, if they doesn't see the target given, will act on the final entry. These functions will be diciplined!
+ - Incorrect characters may sometimes get saved for culture experience. even stranger, YMIR appears to handle it properly. This appears to happen most often with larger culture files.
+
+Changelog
+v0.4
+ - The program has been modernized to Ymir's current handling of CP, where production levels require two points. (Hence 0.4.0 vs 0.3.1)
+ - The format for Culture_ID_List.txt has been changed to be more legible. It is intended to be modifiable, after all.
+ - A little program history added to the 'about' screen.
+ - Settings file clearly indicates the setting value for manual modification.
+ - ID List no longer tracks autoconsumption. It now tracks if the ID accepts a cp for consumption in-game, well, it's designed to at least. The list is currently 'everything' until it's revised. 
+ - ID List Updated with new IDs
+ - The program previously assumed that any item ID above 149 is Jewelry, it has been informed of the existance of larger numbers.
+ - The final entry's Production score started hiding on save and load again. It has been found and taught healthy social skills. 
+v0.3
+ - Menu infrastructure completely rewritten and is modular and easily modified.
+ - Data management reorganized to be more modular (Specifically I/O and culture ID are now in their own classes).
+ - Culture Point entries have infrastructure for being added, edited, and removed by location, ID, or Name, though the menu for doing so implemented yet.
+ - Values that aren't whole numbers in YMIR are now handled properly in the editor. Console input validation for them isn't implemented yet, though.
+ - If a Points Entry is added for the same item as another points entry, it will overwrite the old entry instead of adding a new entry.
+ - Culture XP renamed to Culture Progress.
+ - Setting culture level only resets culture progress to the next culture level to 0 if culture progress would be greater than the amount required for the next level.
+    Previously This would occur unconditionally.
+ - Added support for external culture file to include if a culture item is always consumed. Unfortunately this will necessitate having a new culture ID file.
+    On the other hand, this will be the last change to the culture ID file unless YMIR changes in a way that necessitates a modification.
+ - The Points Menu will no longer show the points entry array description if there are no entries.
+ - Default bonus CP without loading a file is now 3, as that is how much a new game would have.
+ - An old or wrongly-formatted ID List file will no longer cause the program to fail to start, instead it will load an empty ID List.
+ - There is now a settings menu with several options:
+    You may now chose to read and edit by Spent Consumption & Production Points or Customs & Skills.
+    You may now chose to disable the user-input points cap on production.
+    You can now set a default file name to use other than culture_10 (you can still change filename regularly, the default is what is there when you boot up the editor)
+    You can now change the default filepath for the editor, which is also no longer it's local directory, but in "Culture_Editor_Files/YMIR_Save_Files/"
+    The Program's Intro "If you haven't read the README.txt yet..." now only displays the first time the program is run and can optionally be re-enabled and changed to your liking.
+v0.21.1
+ - Make the saved file the correct length. This should have no performance change, but now I feel all warm and fuzzy inside. :trollpig:
+ - CP entries with 0 points in production or consumption are auto-removed on save.
+ - When working on this^ I noticed that saving wouldn't save the final culture point entry, this has been fixed.
+ - Plans and Changelog separated from the Readme.
+v0.21
+ - The Readme is touched up to hopefully make the tool easier to start using.
+ - Prevented removing the last culture entry if an invalid entry location is used when removing a culture entry.
+ - Improved the culture entry add/edit/remove interface to #1 No longer request any additional information when invalid information is input.
+                                                       and #2 Inform the user of the appropriate range for input when invalid information is input.
+ - Typing nothing before submitting a value that should be a number could previously crash the program.  This has been fixed.
+ - The culture ID list is complete from 1 to 149, with a new parameter to indicate if the culture ID has an innate point or not (like hammers, you don't need a point to produce them)
+ - For entries with innate points, the program should now display the culture skill's level correctly.
+        When editing a culture point entry with innate points, the max points is 5, minimum is 1, and will represent maximum of 4 and minimum of 0 points.
+v0.200
+ - The data structure of the culture file has been determined.
+   As a result close to 80% of the Culture editor has been rewritten, as how the file is handled has drastically changed.
+   Curiously enough the program is now slightly smaller as a result of this, even though it's been improved.
+ - The accompanying culture ID file has been renamed, and the culture IDs are simpler and different.
+ - All values are now translated correctly into the program with the possible exception of culture experience.
+ - More values are now accurately editable. Now you can change your culture level and more, and not just culture point entries.
+ - The Menus are improved and more distinct.
+ - Saving, loading, and changing the file name are now in their own menu and what they will do is more clearly stated.
+ - The program has an in-program title.
+ - Input validation has been greatly improved, though it's not yet perfect.
+ - The menu is no longer caps-sensitive.
+ - New modifiable values in the culture file: Culture Level, Culture Progress(or xp), Bonus Culture Points.
+      These known values and some unknown values have replaced what was previously the "first 52".
+ - The program calculates culture xp required for level with moderate accuracy, as a result it can derive a "total xp" value
+      and determine any change to culture level from modifying current or total culture xp.
+ - Apparently v0.102 was written as v1.02 in the filename. the typo was corrected. :P
+v0.102
+ - The 'coordinate' internal Culture ID is now used for listing Culture IDs and the old form previously used for listing the known Culture IDs is removed. (cleaner code, no significant difference)
+ - Somehow the Culture Edit function was a broken piece of... erm, and a reason that i should always triple-check my coding if i code tired.
+ - You can now edit entries above the fifteenth location.
+v0.101
+ - Refined the internal culture ID lookup to find them as coordinates instead of searching for them in the known list (faster)
+	Currently partially implemented, requesting them to print uses the old system (doesn't need search function)
+ - Culture ID Definitions much more cleanly populated, though you don't need the next version of the program to use them
+ - Production 5 should [mostly] display as 5, some times the production of 4 represents 5. 
+	I'll note down occurences of this over time and set up an exception once i've determined the pattern. (or it could just be for fish)
