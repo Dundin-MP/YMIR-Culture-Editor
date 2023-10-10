@@ -12,7 +12,7 @@ void    cultureInfo::findLevelAtProgress(){                                     
     cout << "remainingProgress: " << remainingProgress << endl;
     int currentLevel = 0;
     bool endHere = 0;
-    while(!endHere){   // less code and less machine logic to have the escape condition trigger directly
+    while(!endHere){                            //less code and less machine logic to have the escape condition trigger directly
         remainingProgress -= findLevelProgressMax(currentLevel);
     cout << "remainingProgress: " << remainingProgress << endl;
         if(remainingProgress<0){

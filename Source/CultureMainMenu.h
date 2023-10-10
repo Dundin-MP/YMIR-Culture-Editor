@@ -1,21 +1,28 @@
 #ifndef CULTUREMAINMENU
 #define CULTUREMAINMENU
-#include "ConsoleIO.h"
-#include "CultureInfo.h"
-#include "CultureIDList.h"
-#include "CultureInfo.h"
-#include "CulturePoints.h"
-#include "CultureIO.h"
-#include "CultureSettings.h"
-#include <conio.h>
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
-#include <cctype>
-#include <string>
-#include <sstream>
-using namespace std;
+    #include "ConsoleIO.h"
+    #include "CultureInfo.h"
+    #include "CultureIDList.h"
+    #include "CultureInfo.h"
+    #include "CulturePoints.h"
+    #include "CultureIO.h"
+    #include "CultureSettings.h"
+    #include <conio.h>
+    #include <iostream>
+    #include <iomanip>
+    #include <algorithm>
+    #include <cctype>
+    #include <string>
+    #include <sstream>
+    using namespace std;
 
+
+void    startMenu();/*                                      Handle menu operations.
+Preconditions:
+    None.
+Postconditions:
+    Return nothing.
+*/
 
 void    cultureMenu();/*                                    Open the main culture menu.
 Preconditions:
@@ -204,4 +211,18 @@ void    toggleShowProdLevel();/* */
 void    limitPoints();/* */
 void    changeIntro();/* */
 void    resetIntro();/* */
+
+void    handleConsole(int argc, char **argv);/*                                     Handle menu operations.
+Preconditions:
+    None.
+Postconditions:
+    Return nothing.
+*/
+
+void    incrementBonusCP(bool flagDown = false);/*                              Increment or Decriment culture file bonus cp.
+Preconditions:
+    Optional bool flag to decriment.
+Postconditions:
+    file provided bonus CP+-1
+*/
 #endif //CULTUREMAINMENU

@@ -222,14 +222,19 @@ const menuDialog coMenu{//Culture File Menu
      /*action*/&upMenu}
 }};
 
-int     main(){                                                     //Display header message and open main culture menu.
-    culSet.showIntro();
-    cultureMenu();
-   return 89777382;
+int     main(int argc, char *argv[]){                               //Display header message and open main culture menu.
+      if(argc > 1){
+        handleConsole(argc, argv);
+        return 1;
+    }else{
+        culSet.showIntro();
+        cultureMenu();
+    return 0;
+    }
 }
 
 //Culture Menu
-void    cultureMenu(){menuLoop(mcMenu);}                                //Open the main culture menu.
+void    cultureMenu(){menuLoop(mcMenu);}                            //Open the main culture menu.
 void    mcShowMenu(){displayMenu(mcMenu);}                          //Display the main culture menu.
 void    mcAbout(){                                                  //Print author and version data.
     cout << endl
@@ -463,3 +468,22 @@ void    resetIntro(){
     culSet.resetIntro();
 }
 
+void    handleConsole(int argc, char **argv){
+    for (int i = 1; i < argc+1; i += 2){
+        culSet.fileName = argv[i+1];
+        cultureIO fileIO(culInf, culPnt, culSet);
+        fileIO.loadFile();
+        string argStr = argv[i];
+        if(argStr == "bonusUp")
+            incrementBonusCP();
+        if(argStr == "bonusDn")
+            incrementBonusCP(true);
+        fileIO.saveFile();
+    }
+}
+
+void    incrementBonusCP(bool flagDown){
+    int bonusMod = 1 + (-2 * flagDown);
+    culInf.setBonusCP(culInf.get_Bonus_CP() + bonusMod);
+    cout << "Bonus CP is now: " << culInf.get_Bonus_CP() << endl;
+}
