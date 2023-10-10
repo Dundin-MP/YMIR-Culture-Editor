@@ -1,6 +1,0 @@
-DefaultFileName [culture_10.yds]
-SavePath [Culture_Editor_Files/YMIR_Save_Files/]
-Intro [If you haven't yet done so, I recommend you read Readme.txt written for and included in each version of the YMIR Culture File Editor before using the program. Regardless if you have though, I hope you find the editor useful. May you find a five deepmine gold vein on your capital!]
-AlwaysDisplayIntro [0]
-ShowProdLevel [1]
-LimitProduction [1]
