@@ -470,10 +470,10 @@ void    resetIntro(){
 
 void    handleConsole(int argc, char **argv){
     for (int i = 1; i < argc+1; i += 2){
-        culSet.fileName = argv[i+1];
+        culSet.fileName = argv[i];
+        string argStr = argv[i+1];
         cultureIO fileIO(culInf, culPnt, culSet);
         fileIO.loadFile();
-        string argStr = argv[i];
         if(argStr == "bonusUp")
             incrementBonusCP();
         if(argStr == "bonusDn")
