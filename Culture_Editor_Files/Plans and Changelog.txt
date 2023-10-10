@@ -1,22 +1,19 @@
 Planned Improvements:			    [Implementable or useful now]
  - Brainstorming possible settings to allow now there is a config file.
  - Finding out what the 2 unknown values in the culture file are (one which is likely xp rate, two which are... magic).
- - Provide an informative message when a value is capped to a certain number. (For example, entering production points of 6 is allowed, but reduced to 5)
+ - Provide feedback when a value is capped to a certain number. (For example, entering production points of 6 is allowed, but reduced to 5)
  - Determine which Culture ID List elements are not available to consume in-game (ex. not hammers) and revise the file accordingly. (input gladly accepted)
  - Allow people to add and modify Culture IDs to the culture file in-program.
- - Learn to use GitHub and get it set up there
- - Add setting to bypass in-game limits on which products may be consumed
 UI Infrastructure Improvements:
  - clean up UI (clear console before printed command)
  - Edit/Add/Remove culture point entries by name, ID, or location. (Infrastructure complete, menu not.)
  - Set up functions to increment/decrement production points.
+Batch editing early goals:
+ - Create more operations for editing via command line
+ - Handle command line argument operations outside the menu processing file.
+ - Reversible Batch Edit. (auto-generate backup)
 
 Longer term objectives:
- - Set up framework for Batch editing
-	- file for edit / files to edit
-	- file for sets of edits
-	- [Improvement] Allow program args for console batch editing
-	- [Improvement] Reversible Batch Edit
  - Map the Tech file.
  - Make a GUI. (outside help?)
 
@@ -29,6 +26,9 @@ Potential Objectives:
  - Incorrect characters may sometimes get saved for culture experience. even stranger, YMIR appears to handle it properly. This appears to happen most often with larger culture files.
 
 Changelog
+v0.4.0.1
+ - The program has the beginnings of infrastructure for applied terminal arguments.
+    bonusUp and bonusDn implemented. Names subject to change.
 v0.4
  - The program has been modernized to Ymir's current handling of CP, where production levels require two points. (Hence 0.4.0 vs 0.3.1)
  - The format for Culture_ID_List.txt has been changed to be more legible. It is intended to be modifiable, after all.

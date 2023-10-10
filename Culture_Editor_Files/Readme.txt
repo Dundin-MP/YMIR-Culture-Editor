@@ -1,20 +1,31 @@
-YMIR Culture Editor v0.4
+YMIR Culture Editor v0.4.0.1
 Authored by Dundin, If you want to contact me, i'm most easily contacted on discord: Dundin
 So onward to the cool stuff!	
 
-In order to use the program, you should know:
- - The culture editor needs any files you want to edit in the directory "\Culture_Editor_Files\YMIR_Save_Files" unless you set otherwise in settings.
+[----THE README STUFF----]
+ - The culture editor needs any files you want to edit in the directory "\Culture_Editor_Files\YMIR_Save_Files" unless you modify the file path in settings.
  - The location to find your culture files on a windows platform is in this directory:
 	"C:\Users\[Your Name]\AppData\Local\Ymir\saves\[Game Name]\players"
  - When looking for your local culture files for a solo game your culture file will be "culture_10"
  - It's a good idea to make backups if you're editing a game's save file.
  - Really, make backups.
  - If your settings somehow get messed up (it may interfere with launching the program if it does) you can reset your settings by deleting the "Settings.txt" file and relaunching the program. If you have a particularly keen eye, you may notice the file isn't even there until you first ran the program.
- - Oh! and if anything blows up, please take a screen-shot and send it my way, i'll fix it ASAP.
+ - If you find yourself with no culture file or backup YMIR will accept a 'blank' culture file; one saved with no options set from the program. I would suggest providing about what you remember having for a Culture Level and 13 Bonus CP.
+ - The Editor allows you to edit several unknown values. Change them at your own risk. 
+    However if you happen to discover what they do represent, I'll greatly appreciate it if you let me know!
 
-What happens if you manage to accidentally damage your culture file.
- - The worst case scenario: YMIR should re-make part or all of the culture file.
- - Your culture point allocation will reset for better or for worse, alongside other possible changes.
+[----COMMAND LINE USE----]
+Hey! Guess What! These are a thing now!
+Currently quite clumsy in initial implementation, as currently command line arguments will open a file, handle one operation, and close the file.
+The format for command line arguments is as follows and likely to change even before 0.4.1:
+[program name] [file to edit] [operation]
+As in:
+YMIR_Culture_Editor_v0.4.0.1.exe culture_10.yds bonusUp
+Currently available commands:
+ - bonusUp
+	Raise bonus CP by 1
+ - bonusDn
+	lower bonus CP by 1
 
-This file has some modifiable values that are unknown. Change them at your own risk. 
-   However if you happen to discover what they do represent, I'll greatly appreciate it if you let me know!.
+
+
