@@ -1,4 +1,4 @@
-YMIR Culture Editor v0.4.0.1
+YMIR Culture Editor v0.4.0.2
 Authored by Dundin, If you want to contact me, i'm most easily contacted on discord: Dundin
 So onward to the cool stuff!	
 
@@ -16,16 +16,17 @@ So onward to the cool stuff!
 
 [----COMMAND LINE USE----]
 Hey! Guess What! These are a thing now!
-Currently quite clumsy in initial implementation, as currently command line arguments will open a file, handle one operation, and close the file.
-The format for command line arguments is as follows and likely to change even before 0.4.1:
-[program name] [file to edit] [operation]
-As in:
-YMIR_Culture_Editor_v0.4.0.1.exe culture_10.yds bonusUp
-Currently available commands:
- - bonusUp
-	Raise bonus CP by 1
- - bonusDn
-	lower bonus CP by 1
+Still in early implementation as right now any batch editing of multiple culture files will need to be handled with a script running the program multiple times.
+The format for command line arguments is as follows:
+[program name] [file to edit] [operation1] [operation1 value] [operation 2] [operation2 value]
+For example:
+YMIR_Culture_Editor_v0.4.0.2.exe culture_10.yds bonusUp 1 levelDn 2
+YMIR_Culture_Editor_v0.4.0.2.exe culture_10.yds bonusDn 1
 
+Currently available commands:
+ - bonusUp --> Raise bonus CP
+ - bonusDn --> Lower bonus CP
+ - levelUp --> Raise culture Level
+ - levelDn --> Lower culture level
 
 
