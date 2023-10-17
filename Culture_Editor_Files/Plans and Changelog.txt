@@ -22,10 +22,16 @@ Potential Objectives:
  - Create option with game path as an input to provide a list of culture files to load/save from.
 
  Known Bugs and Issues
+ - CultureIO does not provide feedback if a file is opened successfully or not. While this is benign in the menu application, this presents problems for batch handling.
  - Both 'Remove Points Entry' and 'Edit Entry By Location' are a little too aggressive, if they doesn't see the target given, will act on the final entry. These functions will be diciplined!
  - Incorrect characters may sometimes get saved for culture experience. even stranger, YMIR appears to handle it properly. This appears to happen most often with larger culture files.
 
 Changelog
+v0.4.0.2
+ - Format chosen for console args, format is as follows:
+	[program name] [culture file name] {[action] [value for action] [action 2] [value for action2] ...}
+ - bonusUp and bonusDn console arguments now accept a number to modify bonus, and don't just increment it by 1
+ - levelUp and levelDn console arguments are now implemented and modify the file's culture level by the given value
 v0.4.0.1
  - The program has the beginnings of infrastructure for applied terminal arguments.
     bonusUp and bonusDn implemented. Names subject to change.
